@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Hairfree Hairgrow - Advanced Hair Treatment Solutions. Book your free consultation today!" />
+    <meta name="keywords" content="hair treatment, hair restoration, hair removal, free consultation">
+    <meta name="author" content="Hairfree Hairgrow">
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Hairfree Hairgrow - Advanced Hair Treatment Solutions">
+    <meta property="og:description"
+        content="Book your free consultation today for advanced hair restoration and removal treatments.">
+    <meta property="og:image" content="assets/images/logo.webp">
+    <meta property="og:url" content="https://www.hairfreehairgrow.com">
+
+    <title>Hairfree Hairgrow</title>
+    <link rel="icon" type="image/webp" href="assets/images/logo.webp">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <!-- Logo -->
+            <div class="logo-container">
+                <img src="assets/images/logo.webp" alt="Hairfree Hairgrow Logo" class="logo">
+            </div>
+            <!-- Navbar -->
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#before-after-gallery">Results</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                </ul>
+            </nav>
+            <!-- Hamburger Icon -->
+            <div class="hamburger" onclick="toggleNavbar()">&#9776;</div>
+            <nav class="navbar">
+        </div>
+        <script>
+            function toggleNavbar() {
+                const navbar = document.querySelector('.navbar');
+                navbar.classList.toggle('active');
+            }
+        </script>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <!-- Slider Wrapper -->
+            <div class="slider-container">
+                <div class="slider">
+                    <!-- Slide 1 -->
+                    <div class="slide active" style="background-image: url('assets/images/slider/doctor1.webp');">
+                        <div class="slide-content">
+                            <h1 class="hero-title">Advanced Hair Treatment by Experts</h1>
+                            <p class="hero-subtitle">Hairfree Hairgrow offers the most advanced and effective hair
+                                restoration and removal treatments.</p>
+                            <a href="#consultation-form" class="btn scroll-btn">Book Free Consultation</a>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="slide" style="background-image: url('assets/images/slider/doctor2.webp');">
+                        <div class="slide-content">
+                            <h1 class="hero-title">See Real Results</h1>
+                            <p class="hero-subtitle">Our treatments are scientifically backed and deliver visible
+                                results in no time.</p>
+                            <a href="#before-after-gallery" class="btn scroll-btn">View Before/After Gallery</a>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="slide" style="background-image: url('assets/images/slide3.jpg');">
+                        <div class="slide-content">
+                            <h1 class="hero-title">Why Choose Hairfree Hairgrow?</h1>
+                            <p class="hero-subtitle">Non-invasive, fast recovery, and expert care for all your hair
+                                needs.</p>
+                            <a href="#treatment-benefits" class="btn scroll-btn">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slider Navigation -->
+                <div class="slider-nav">
+                    <button class="nav-btn prev" onclick="changeSlide(-1)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 6 9 12 15 18"></polyline>
+                        </svg>
+                    </button>
+                    <button class="nav-btn next" onclick="changeSlide(1)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 6 15 12 9 18"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video">
+        <div class="container">
+            <h2 class="section-title">Watch Our Treatment in Action</h2>
+            <div class="video-container">
+                <a href="https://youtu.be/5u-NLlCTXLs?si=Iv6NEf_P0roDgP08" class="video-thumbnail" target="_blank">
+                    <img src="assets/images/video-thumbnail.jpg" alt="Video Thumbnail" loading="lazy" />
+                    <div class="play-btn">▶</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Treatment Benefits -->
+    <section class="treatment-benefits">
+        <div class="container">
+            <h2 class="section-title">Why Choose Hairfree Hairgrow?</h2>
+            <ul class="benefits-list">
+                <li><strong>Non-Invasive:</strong> No surgery, no needles – just effective treatments for hair
+                    restoration.</li>
+                <li><strong>Fast Recovery:</strong> Minimal downtime, get back to your routine in no time.</li>
+                <li><strong>Scientifically Backed:</strong> Treatments supported by the latest research and technology.
+                </li>
+                <li><strong>Experienced Experts:</strong> Work with highly trained specialists in the field.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Before/After Gallery -->
+    <section class="before-after-gallery">
+        <div class="container">
+            <h2 class="section-title">See the Results</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="assets/images/before1.jpg" alt="Before Treatment" loading="lazy" />
+                    <p>Before Treatment</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/after1.jpg" alt="After Treatment" loading="lazy" />
+                    <p>After Treatment</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements -->
+    <section class="achievements">
+        <div class="container">
+            <h2 class="section-title">Our Achievements</h2>
+            <div class="achievements-list">
+                <div class="achievement">
+                    <img src="assets/images/award1.jpg" alt="Award 1" loading="lazy" />
+                    <p>Best Hair Treatment Provider 2025</p>
+                </div>
+                <div class="achievement">
+                    <img src="assets/images/award2.jpg" alt="Award 2" loading="lazy" />
+                    <p>Top 10 Clinics in India</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <div class="testimonial">
+                <p>"Hairfree Hairgrow changed my life! The treatment was painless, and the results were amazing!"</p>
+                <span>- Client Name</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h3>How long do the treatments take?</h3>
+                <p>The treatments typically take 30 to 60 minutes, depending on the area treated.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Is the treatment painful?</h3>
+                <p>The treatment is non-invasive and generally pain-free, with minimal discomfort.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Form -->
+    <section class="lead-form" id="consultation">
+        <div class="container">
+            <h2 class="section-title">Get Your Free Consultation</h2>
+            <form action="form-handler.php" method="POST" class="consultation-form">
+                <input type="text" name="name" placeholder="Your Name" required />
+                <input type="email" name="email" placeholder="Your Email" required />
+                <input type="tel" name="phone" placeholder="Your Phone Number" required />
+                <textarea name="message" placeholder="Your Message (optional)"></textarea>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/917272832222" class="whatsapp-btn" target="_blank" title="Chat on WhatsApp">
+        💬 Chat Now
+    </a>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            &copy; 2025 Hairfree Hairgrow. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function changeSlide(direction) {
+            // Calculate the next slide index
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            updateSlider();
+        }
+
+        function updateSlider() {
+            // Move the slider to show the current slide
+            const slider = document.querySelector('.slider');
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        // Auto-play the slider every 5 seconds
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+
+        // Initialize the slider
+        updateSlider();
+    </script>
+
+</body>
+
+</html>
