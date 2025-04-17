@@ -181,27 +181,6 @@ header.site-header {
     aspect-ratio: 16 / 9;
 }
 
-.slide-content {
-    position: relative;
-    z-index: 2;
-    max-width: 600px;
-    padding: 2rem;
-    background: rgba(90, 90, 90, 0.275); /* Semi-transparent overlay */
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add a subtle shadow for depth */
-}
-
-.hero-title {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.hero-subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-}
-
 .scroll-btn {
     background: #25D366;
     color: white;
@@ -268,34 +247,39 @@ header.site-header {
 /* Responsive Design */
 @media (max-width: 768px) {
     .slider-container {
-        height: 50vh; /* Adjust height for smaller screens */
-        min-height: 300px; /* Ensure minimum height */
+        height: 1%;
+        min-height: 250px;
     }
 
-    .hero-title {
-        font-size: 2rem; /* Smaller font size for mobile */
+    .slide {
+        background-size: cover;
+        background-position: center;
     }
 
-    .hero-subtitle {
-        font-size: 1rem; /* Smaller font size for mobile */
+    .slide::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+        z-index: 1;
     }
-
     .scroll-btn {
-        padding: 0.8rem 1.5rem; /* Adjust button size for mobile */
-        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
     }
 
     .nav-btn {
-        font-size: 1.5rem; /* Smaller navigation buttons */
-        padding: 0.8rem;
+        width: 40px;
+        height: 40px;
+        padding: 0.5rem;
     }
 
-    .slide-content {
-        padding: 1.5rem; /* Reduce padding for mobile */
-    }
-
-    .responsive-image {
-        object-fit: cover; /* Ensure images look sharp on mobile */
+    .nav-btn svg {
+        width: 20px;
+        height: 20px;
     }
 }
 

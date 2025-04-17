@@ -17,7 +17,7 @@
     <meta property="og:url" content="https://www.hairfreehairgrow.com">
 
     <title>Hairfree Hairgrow</title>
-    <link rel="icon" type="image/webp" href="assets/images/logo.webp">
+    <link rel="icon" type="image/webp" href="assets/images/logo.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -31,7 +31,7 @@
                     <img src="assets/images/logo.webp" alt="Hairfree Hairgrow Logo" class="logo">
                 </a>
             </div>
-    
+
             <!-- Navbar -->
             <nav class="navbar">
                 <ul class="nav-links">
@@ -43,7 +43,7 @@
                     <li><a href="#testimonials">Testimonials</a></li>
                 </ul>
             </nav>
-    
+
             <!-- Hamburger Icon -->
             <div class="hamburger" onclick="toggleNavbar()">&#9776;</div>
         </div>
@@ -73,32 +73,133 @@
             <div class="slider-container">
                 <div class="slider">
                     <!-- Slide 1 -->
-                    <div class="slide active" style="background-image: url('assets/images/slider/doctor1.webp');">
-                        <div class="slide-content">
-                            <h1 class="hero-title">Advanced Hair Treatment by Experts</h1>
-                            <p class="hero-subtitle">Hairfree Hairgrow offers the most advanced and effective hair
-                                restoration and removal treatments.</p>
-                            <a href="#consultation-form" class="btn scroll-btn">Book Free Consultation</a>
-                        </div>
+                    <div class="slide active">
+                        <picture>
+                            <!-- WebP format for modern browsers (responsive sizes) -->
+                            <source 
+                                media="(max-width: 768px)" 
+                                srcset="assets/images/slider/doctor1/doctor1-small.webp" 
+                                type="image/webp"
+                            >
+                            <source 
+                                media="(max-width: 1200px)" 
+                                srcset="assets/images/slider/doctor1/doctor1-medium.webp" 
+                                type="image/webp"
+                            >
+                            <source 
+                                srcset="assets/images/slider/doctor1/doctor1-large.webp" 
+                                type="image/webp"
+                            >
+    
+                            <!-- Fallback JPEG format for older browsers -->
+                            <source 
+                                media="(max-width: 768px)" 
+                                srcset="assets/images/slider/doctor1/doctor1-large.jpeg" 
+                                type="image/jpeg"
+                            >
+                            <source 
+                                media="(max-width: 1200px)" 
+                                srcset="assets/images/slider/doctor1/doctor1-medium.jpeg" 
+                                type="image/jpeg"
+                            >
+                            <source 
+                                srcset="assets/images/slider/doctor1/doctor1-large.jpeg" 
+                                type="image/jpeg"
+                            >
+    
+                            <!-- Default fallback image -->
+                            <img 
+                                src="assets/images/slider/doctor1/doctor1.jpeg" 
+                                alt="Doctor 1" 
+                                loading="lazy"
+                            >
+                        </picture>
                     </div>
+    
                     <!-- Slide 2 -->
-                    <div class="slide" style="background-image: url('assets/images/slider/doctor2.webp');">
-                        <div class="slide-content">
-                            <h1 class="hero-title">See Real Results</h1>
-                            <p class="hero-subtitle">Our treatments are scientifically backed and deliver visible
-                                results in no time.</p>
-                            <a href="#before-after-gallery" class="btn scroll-btn">View Before/After Gallery</a>
-                        </div>
+                    <div class="slide">
+                        <picture>
+                            <!-- WebP format for modern browsers (responsive sizes) -->
+                            <source 
+                                media="(max-width: 768px)" 
+                                srcset="assets/images/slider/doctor2/doctor2-small.webp" 
+                                type="image/webp"
+                            >
+                            <source 
+                                media="(max-width: 1200px)" 
+                                srcset="assets/images/slider/doctor2/doctor2-medium.webp" 
+                                type="image/webp"
+                            >
+                            <source 
+                                srcset="assets/images/slider/doctor2/doctor2-large.webp" 
+                                type="image/webp"
+                            >
+    
+                            <!-- Fallback JPEG format for older browsers -->
+                            <source 
+                                media="(max-width: 768px)" 
+                                srcset="assets/images/slider/doctor2/doctor2-small.jpeg" 
+                                type="image/jpeg"
+                            >
+                            <source 
+                                media="(max-width: 1200px)" 
+                                srcset="assets/images/slider/doctor2/doctor2-medium.jpeg" 
+                                type="image/jpeg"
+                            >
+                            <source 
+                                srcset="assets/images/slider/doctor2/doctor2-large.jpeg" 
+                                type="image/jpeg"
+                            >
+    
+                            <!-- Default fallback image -->
+                            <img 
+                                src="assets/images/slider/doctor2/doctor2.webp" 
+                                alt="Doctor 2" 
+                                loading="lazy"
+                            >
+                        </picture>
                     </div>
-                    <!-- Slide 3 -->
-                    <div class="slide" style="background-image: url('assets/images/slide3.jpg');">
-                        <div class="slide-content">
-                            <h1 class="hero-title">Why Choose Hairfree Hairgrow?</h1>
-                            <p class="hero-subtitle">Non-invasive, fast recovery, and expert care for all your hair
-                                needs.</p>
-                            <a href="#treatment-benefits" class="btn scroll-btn">Learn More</a>
-                        </div>
-                    </div>
+    
+                    <!-- Slide 3 (Optional) -->
+                    <!-- <div class="slide">
+                        <picture>
+                            <source 
+                                media="(max-width: 768px)" 
+                                srcset="assets/images/slider/doctor3/doctor3-small.webp" 
+                                type="image/webp"
+                            >
+                            <source 
+                                media="(max-width: 1200px)" 
+                                srcset="assets/images/slider/doctor3/doctor3-medium.webp" 
+                                type="image/webp"
+                            >
+                            <source 
+                                srcset="assets/images/slider/doctor3/doctor3-large.webp" 
+                                type="image/webp"
+                            >
+    
+                            <source 
+                                media="(max-width: 768px)" 
+                                srcset="assets/images/slider/doctor3/doctor3-small.jpg" 
+                                type="image/jpeg"
+                            >
+                            <source 
+                                media="(max-width: 1200px)" 
+                                srcset="assets/images/slider/doctor3/doctor3-medium.jpg" 
+                                type="image/jpeg"
+                            >
+                            <source 
+                                srcset="assets/images/slider/doctor3/doctor3-large.jpg" 
+                                type="image/jpeg"
+                            >
+    
+                            <img 
+                                src="assets/images/slider/doctor3/doctor3-large.jpg" 
+                                alt="Doctor 3" 
+                                loading="lazy"
+                            >
+                        </picture>
+                    </div> -->
                 </div>
                 <!-- Slider Navigation -->
                 <div class="slider-nav">
@@ -413,6 +514,24 @@
             // Change icon
             faqIcon.textContent = faqItem.classList.contains('active') ? '-' : '+';
         }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const slides = document.querySelectorAll('.slide');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.backgroundImage = entry.target.dataset.bg;
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+
+            slides.forEach(slide => {
+                slide.dataset.bg = slide.style.backgroundImage; // Store the background image URL
+                slide.style.backgroundImage = 'none'; // Remove the image initially
+                observer.observe(slide);
+            });
+        });
 
     </script>
 
