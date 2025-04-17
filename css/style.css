@@ -12,6 +12,8 @@ body {
     background: #fff;
     line-height: 1.6;
     scroll-behavior: smooth;
+    align-items: center;
+    justify-content: space-between;
 }
 
 /* Global Container */
@@ -38,9 +40,17 @@ header.site-header {
     z-index: 1000;
 }
 
-.logo-container {
-    flex: 1;
+.site-header .container {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    justify-content: space-between; /* Add space between logo and navbar */
+    gap: 1rem; /* Add spacing between elements */
 }
+
+.logo-container {
+    flex-shrink: 0; /* Prevent the logo from shrinking */
+}
+
 .logo {
     width: 50px;
     height: 50px;
@@ -49,8 +59,9 @@ header.site-header {
 
 /* Navbar Styling */
 .navbar {
-    flex: 2;
+    flex-grow: 1; /* Allow the navbar to take up remaining space */
     text-align: right;
+    margin-left: auto; /* Push the navbar to the right */
 }
 
 .nav-links {
@@ -79,23 +90,39 @@ header.site-header {
     border-bottom: 2px solid #25D366;
 }
 
+.hamburger {
+    display: none; /* Hidden by default on larger screens */
+    cursor: pointer;
+    color: #2E314B;
+    font-size: 1.5rem;
+    margin-left: auto;
+}
+
 /* Mobile Navbar */
 @media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: center;
+    .navbar {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 0; /* Align to the top of the viewport */
+        right: 0; /* Start off-screen (left) */
+        width: 200px; /* Width of the menu */
+        height: fit-content; /* Full height */
+        background: #f9f9f9; /* Background color */
+        box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+        transition: left 0.3s ease; /* Smooth slide-in animation */
+        z-index: 1000; /* Ensure it appears above other content */
     }
 
-    .navbar {
-        display: none;
-        width: 100%;
+    .navbar.active {
+        display: flex;
+        transform: translateX(0); /* Slide into view */
     }
 
     .nav-links {
         flex-direction: column;
         gap: 1rem;
-        padding: 1rem 0;
+        padding: 2rem;
+        text-align: center;
     }
 
     .hamburger {
@@ -104,7 +131,8 @@ header.site-header {
         color: #2E314B;
         font-size: 1.5rem;
         margin-left: auto;
-        margin-bottom: 1rem;
+        z-index: 1001; /* Higher z-index than the navbar */
+        position: relative; /* Ensure proper stacking context */
     }
 }
 
@@ -189,20 +217,6 @@ header.site-header {
     background: #1e213b;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .slider-container {
-        height: 70vh; /* Adjust height for smaller screens */
-    }
-    .hero-title {
-        font-size: 2rem;
-    }
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-}
-
-/* Slider Navigation Buttons */
 /* Slider Navigation */
 .slider-nav {
     position: absolute;
@@ -253,16 +267,35 @@ header.site-header {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .slider-container {
+        height: 50vh; /* Adjust height for smaller screens */
+        min-height: 300px; /* Ensure minimum height */
+    }
+
     .hero-title {
-        font-size: 2rem;
+        font-size: 2rem; /* Smaller font size for mobile */
     }
 
     .hero-subtitle {
-        font-size: 1rem;
+        font-size: 1rem; /* Smaller font size for mobile */
     }
 
-    .slide-image {
-        height: 70vh; /* Adjust height for smaller screens */
+    .scroll-btn {
+        padding: 0.8rem 1.5rem; /* Adjust button size for mobile */
+        font-size: 0.9rem;
+    }
+
+    .nav-btn {
+        font-size: 1.5rem; /* Smaller navigation buttons */
+        padding: 0.8rem;
+    }
+
+    .slide-content {
+        padding: 1.5rem; /* Reduce padding for mobile */
+    }
+
+    .responsive-image {
+        object-fit: cover; /* Ensure images look sharp on mobile */
     }
 }
 
@@ -283,33 +316,12 @@ header.site-header {
     text-align: center;
 }
 
-.video .video-thumbnail {
-    position: relative;
-    display: inline-block;
-}
-
-.video .video-thumbnail img {
-    max-width: 100%;
+.video .video-iframe {
+    width: 100%;
+    max-width: 800px; /* Adjust as needed */
+    aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.video .play-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 2rem;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
-    padding: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.video .play-btn:hover {
-    background-color: rgba(0, 0, 0, 0.7);
 }
 
 /* Treatment Benefits */
@@ -325,16 +337,51 @@ header.site-header {
     text-align: center;
 }
 
-.treatment-benefits .benefits-list {
-    list-style-type: none;
-    padding: 0;
-    text-align: center;
+.treatment-benefits .benefits-grid {
+    display: flex;
+    gap: 1.5rem; /* Space between cards */
+    justify-content: center; /* Center the cards horizontally */
+    flex-wrap: wrap; /* Wrap to new line if needed */
 }
 
-.treatment-benefits .benefits-list li {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
+.treatment-benefits .benefit-card {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex: 0 0 calc(25% - 1.5rem); /* Each card takes 25% width minus gap */
+    min-width: 200px; /* Ensure minimum width for responsiveness */
 }
+
+.treatment-benefits .benefit-card:hover {
+    transform: translateY(-10px); /* Slightly lift the card */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Increase shadow for depth */
+    background: #e8f7ef; /* Change background color */
+}
+
+.treatment-benefits .benefit-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #2E314B;
+    transition: color 0.3s ease;
+}
+
+.treatment-benefits .benefit-card:hover h3 {
+    color: #25D366; /* Highlight the title on hover */
+}
+
+.treatment-benefits .benefit-card p {
+    font-size: 1rem;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .benefit-card:hover {
+        transform: translateY(-5px); /* Reduce lift effect for smaller screens */
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Slightly reduce shadow */
+    }
+}   
 
 /* Before/After Gallery */
 .before-after-gallery {
@@ -350,10 +397,16 @@ header.site-header {
 }
 
 .before-after-gallery .gallery {
-    display: flex;
-    justify-content: space-around;
-    gap: 1rem;
+    display: flex; /* Align items horizontally */
+    justify-content: center; /* Center items horizontally */
+    gap: 1.5rem; /* Space between items */
+    flex-wrap: wrap; /* Wrap to new line if needed */
+}
+
+.before-after-gallery .gallery-item {
     text-align: center;
+    flex: 0 0 calc(50% - 1.5rem); /* Each item takes 50% width minus gap */
+    min-width: 200px; /* Ensure minimum width for responsiveness */
 }
 
 .before-after-gallery .gallery-item img {
@@ -369,11 +422,17 @@ header.site-header {
 
 @media (max-width: 768px) {
     .before-after-gallery .gallery {
-        flex-direction: column;
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: center; /* Center items */
+    }
+
+    .before-after-gallery .gallery-item {
+        flex: 1; /* Take full width on small screens */
     }
 }
 
 /* Achievements */
+/* Achievements Section */
 .achievements {
     padding: 2rem 0;
     background-color: #f9f9f9;
@@ -386,22 +445,37 @@ header.site-header {
     text-align: center;
 }
 
-.achievements .achievements-list {
-    display: flex;
-    justify-content: space-around;
-    gap: 2rem;
+.achievements .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
+    gap: 1.5rem; /* Space between items */
+    justify-content: center;
     text-align: center;
 }
 
-.achievements .achievement img {
-    max-width: 100%;
+.achievements .stat-item {
+    background: #fff;
+    padding: 1.5rem;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.achievements .achievement p {
-    margin-top: 1rem;
-    font-size: 1.1rem;
+.achievements .stat-item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Increase shadow for depth */
+}
+
+.achievements .stat-item h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2E314B;
+    margin-bottom: 0.5rem;
+}
+
+.achievements .stat-item p {
+    font-size: 1rem;
+    color: #555;
 }
 
 @media (max-width: 768px) {
@@ -410,7 +484,7 @@ header.site-header {
     }
 }
 
-/* Testimonials */
+/* Testimonials Section */
 .testimonials {
     padding: 2rem 0;
     background-color: #fff;
@@ -423,18 +497,84 @@ header.site-header {
     text-align: center;
 }
 
-.testimonials .testimonial {
-    text-align: center;
-    font-style: italic;
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
+.testimonials .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 1.5rem; /* Space between cards */
+    justify-content: center;
 }
 
-.testimonials .testimonial span {
+.testimonials .testimonial-card {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonials .testimonial-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Increase shadow for depth */
+}
+
+.testimonials .client-photo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    border: 2px solid #25D366; /* Highlight the photo */
+}
+
+.testimonials .testimonial-text {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.testimonials .rating {
+    font-size: 1.2rem;
+    color: #FFD700; /* Gold color for stars */
+    margin-bottom: 0.5rem;
+}
+
+.testimonials .client-name {
     display: block;
-    font-weight: bold;
-    margin-top: 0.5rem;
+    font-size: 1rem;
     color: #2E314B;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.testimonials .book-now-btn {
+    background: #25D366;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.book-now-btn:hover {
+    background: #1e213b;
+}
+
+@media (max-width: 768px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr; /* Stack testimonials vertically on small screens */
+    }
+
+    .client-photo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .book-now-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
 }
 
 /* FAQ Section */
@@ -450,18 +590,86 @@ header.site-header {
     text-align: center;
 }
 
-.faq .faq-item {
-    margin-bottom: 1.5rem;
+/* FAQ Section */
+.faq {
+    padding: 2rem 0;
+    background-color: #f9f9f9;
 }
 
-.faq .faq-item h3 {
-    font-size: 1.2rem;
+.faq .section-title {
+    font-size: 1.8rem;
     color: #2E314B;
+    margin-bottom: 1.5rem;
+    text-align: center;
 }
 
-.faq .faq-item p {
+.faq .faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.faq .faq-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.faq .faq-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
     font-size: 1rem;
-    color: #333;
+    font-weight: bold;
+    color: #2E314B;
+    background: #f9f9f9;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.faq .faq-header:hover {
+    background: #eaeaea;
+}
+
+.faq .faq-icon {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #25D366;
+}
+
+.faq .faq-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 1rem;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background: #fff;
+}
+
+.faq .faq-content p {
+    font-size: 1rem;
+    color: #555;
+    margin: 0.5rem 0;
+}
+
+.faq .faq-content .know-more-link {
+    color: #25D366;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.faq .faq-content .know-more-link:hover {
+    color: #1e213b;
+}
+
+.faq .faq-item.active .faq-content {
+    max-height: 200px; /* Adjust based on content */
+    padding: 1rem;
 }
 
 /* Lead Form Section */
@@ -504,12 +712,41 @@ header.site-header {
     background: #1e213b;
 }
 
+/* Call Button */
+.call-btn {
+    position: fixed;
+    bottom: 100px; /* Increased from 80px to create more space */
+    right: 20px;
+    background: #007BFF; /* Blue color for the call button */
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.call-btn:hover {
+    transform: scale(1.1);
+}
+
+.call-btn img {
+    width: 32px; /* Adjust based on button size */
+    height: 32px;
+    filter: brightness(0) invert(1); /* Ensures the icon is visible (white) */
+}
+
 /* WhatsApp Button */
 .whatsapp-btn {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #25D366;
+    background: #25D366; /* WhatsApp green */
     color: white;
     border-radius: 50%;
     width: 60px;
@@ -527,13 +764,33 @@ header.site-header {
     transform: scale(1.1);
 }
 
+.whatsapp-btn img {
+    width: 48px; /* Adjust based on button size */
+    height: 48px;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
+    .call-btn {
+        bottom: 90px; /* Adjust spacing for smaller screens */
+        right: 10px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
     .whatsapp-btn {
         bottom: 10px;
         right: 10px;
         width: 50px;
         height: 50px;
         font-size: 1.2rem;
+    }
+
+    .call-btn img,
+    .whatsapp-btn img {
+        width: 20px; /* Reduce icon size for smaller screens */
+        height: 20px;
     }
 }
 

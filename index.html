@@ -27,8 +27,11 @@
         <div class="container">
             <!-- Logo -->
             <div class="logo-container">
-                <img src="assets/images/logo.webp" alt="Hairfree Hairgrow Logo" class="logo">
+                <a href="#hero">
+                    <img src="assets/images/logo.webp" alt="Hairfree Hairgrow Logo" class="logo">
+                </a>
             </div>
+    
             <!-- Navbar -->
             <nav class="navbar">
                 <ul class="nav-links">
@@ -40,17 +43,28 @@
                     <li><a href="#testimonials">Testimonials</a></li>
                 </ul>
             </nav>
+    
             <!-- Hamburger Icon -->
             <div class="hamburger" onclick="toggleNavbar()">&#9776;</div>
-            <nav class="navbar">
         </div>
-        <script>
-            function toggleNavbar() {
-                const navbar = document.querySelector('.navbar');
-                navbar.classList.toggle('active');
-            }
-        </script>
     </header>
+
+    <script>
+        function toggleNavbar() {
+            const navbar = document.querySelector('.navbar');
+            const hamburger = document.querySelector('.hamburger');
+
+            // Toggle the 'active' class on the navbar
+            navbar.classList.toggle('active');
+
+            // Update the hamburger icon text
+            if (navbar.classList.contains('active')) {
+                hamburger.textContent = '✕'; // Change to cross icon
+            } else {
+                hamburger.textContent = '☰'; // Change back to hamburger icon
+            }
+        }
+    </script>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -110,10 +124,11 @@
         <div class="container">
             <h2 class="section-title">Watch Our Treatment in Action</h2>
             <div class="video-container">
-                <a href="https://youtu.be/5u-NLlCTXLs?si=Iv6NEf_P0roDgP08" class="video-thumbnail" target="_blank">
-                    <img src="assets/images/video-thumbnail.jpg" alt="Video Thumbnail" loading="lazy" />
-                    <div class="play-btn">▶</div>
-                </a>
+                <!-- Replace the thumbnail and play button with an iframe -->
+                <iframe
+                    src="https://www.youtube.com/embed/5u-NLlCTXLs?autoplay=1&loop=1&controls=0&mute=1&playlist=5u-NLlCTXLs"
+                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="Treatment Video"
+                    class="video-iframe"></iframe>
             </div>
         </div>
     </section>
@@ -122,29 +137,54 @@
     <section class="treatment-benefits">
         <div class="container">
             <h2 class="section-title">Why Choose Hairfree Hairgrow?</h2>
-            <ul class="benefits-list">
-                <li><strong>Non-Invasive:</strong> No surgery, no needles – just effective treatments for hair
-                    restoration.</li>
-                <li><strong>Fast Recovery:</strong> Minimal downtime, get back to your routine in no time.</li>
-                <li><strong>Scientifically Backed:</strong> Treatments supported by the latest research and technology.
-                </li>
-                <li><strong>Experienced Experts:</strong> Work with highly trained specialists in the field.</li>
-            </ul>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>Non-Invasive</h3>
+                    <p>No surgery, no needles – just effective treatments for hair restoration.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Fast Recovery</h3>
+                    <p>Minimal downtime, get back to your routine in no time.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Scientifically Backed</h3>
+                    <p>Treatments supported by the latest research and technology.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Experienced Experts</h3>
+                    <p>Work with highly trained specialists in the field.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Before/After Gallery -->
     <section class="before-after-gallery">
         <div class="container">
             <h2 class="section-title">See the Results</h2>
             <div class="gallery">
                 <div class="gallery-item">
-                    <img src="assets/images/before1.jpg" alt="Before Treatment" loading="lazy" />
-                    <p>Before Treatment</p>
+                    <img src="assets/images/before-after-1.webp" alt="Before and After Treatment" loading="lazy" />
+                    <p>Before & After Treatment</p>
                 </div>
                 <div class="gallery-item">
-                    <img src="assets/images/after1.jpg" alt="After Treatment" loading="lazy" />
-                    <p>After Treatment</p>
+                    <img src="assets/images/before-after-02.webp" alt="Before and After Treatment" loading="lazy" />
+                    <p>Before & After Treatment</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/before-after-03.webp" alt="Before and After Treatment" loading="lazy" />
+                    <p>Before & After Treatment</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/before-after-04.webp" alt="Before and After Treatment" loading="lazy" />
+                    <p>Before & After Treatment</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/before-after-05.webp" alt="Before and After Treatment" loading="lazy" />
+                    <p>Before & After Treatment</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/before-after-07.webp" alt="Before and After Treatment" loading="lazy" />
+                    <p>Before & After Treatment</p>
                 </div>
             </div>
         </div>
@@ -154,14 +194,31 @@
     <section class="achievements">
         <div class="container">
             <h2 class="section-title">Our Achievements</h2>
-            <div class="achievements-list">
-                <div class="achievement">
-                    <img src="assets/images/award1.jpg" alt="Award 1" loading="lazy" />
-                    <p>Best Hair Treatment Provider 2025</p>
+            <div class="stats-grid">
+                <!-- Stat Item 1 -->
+                <div class="stat-item">
+                    <h3>100K+</h3>
+                    <p>Satisfied Patients</p>
                 </div>
-                <div class="achievement">
-                    <img src="assets/images/award2.jpg" alt="Award 2" loading="lazy" />
-                    <p>Top 10 Clinics in India</p>
+                <!-- Stat Item 2 -->
+                <div class="stat-item">
+                    <h3>20K+</h3>
+                    <p>Hair Transplant Surgeries</p>
+                </div>
+                <!-- Stat Item 3 -->
+                <div class="stat-item">
+                    <h3>15+</h3>
+                    <p>Years Experience</p>
+                </div>
+                <!-- Stat Item 4 -->
+                <div class="stat-item">
+                    <h3>13+</h3>
+                    <p>Clinics In India</p>
+                </div>
+                <!-- Stat Item 5 -->
+                <div class="stat-item">
+                    <h3>30+</h3>
+                    <p>Doctors</p>
                 </div>
             </div>
         </div>
@@ -171,9 +228,36 @@
     <section class="testimonials">
         <div class="container">
             <h2 class="section-title">What Our Clients Say</h2>
-            <div class="testimonial">
-                <p>"Hairfree Hairgrow changed my life! The treatment was painless, and the results were amazing!"</p>
-                <span>- Client Name</span>
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <img src="assets/images/patient-testimonials-1-595x282.webp" alt="Client Photo"
+                        class="client-photo">
+                    <p class="testimonial-text">
+                        "Overall, I would rate my experience with Hairfree And Hairgrow Clinic a solid 5 out of 5 stars.
+                        I highly recommend them to anyone looking for hair transplant. Keep up the fantastic work!"
+                    </p>
+                    <div class="rating">
+                        ★★★★★
+                    </div>
+                    <span class="client-name"></span>
+                    <a href="#consultation-form" class="btn book-now-btn">Book Now</a>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <img src="assets/images/patient-testimonials-1-595x282.webp" alt="Client Photo"
+                        class="client-photo">
+                    <p class="testimonial-text">
+                        "The staff at Hairfree Hairgrow were incredibly professional and supportive throughout the
+                        process.
+                        The results exceeded my expectations!"
+                    </p>
+                    <div class="rating">
+                        ★★★★★
+                    </div>
+                    <span class="client-name"></span>
+                    <a href="#consultation-form" class="btn book-now-btn">Book Now</a>
+                </div>
             </div>
         </div>
     </section>
@@ -182,13 +266,82 @@
     <section class="faq">
         <div class="container">
             <h2 class="section-title">Frequently Asked Questions</h2>
-            <div class="faq-item">
-                <h3>How long do the treatments take?</h3>
-                <p>The treatments typically take 30 to 60 minutes, depending on the area treated.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Is the treatment painful?</h3>
-                <p>The treatment is non-invasive and generally pain-free, with minimal discomfort.</p>
+            <div class="faq-container">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                    <button class="faq-header" onclick="toggleFaq(this)">
+                        Can I combine a hair transplant with other treatments, like PRP therapy?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-content">
+                        <p>Yes, many opt to combine a hair transplant with Platelet-Rich Plasma (PRP) therapy to enhance
+                            results. PRP can promote hair growth and improve the success of the transplant.<a
+                                href="#know-more" class="know-more-link">Know More</a></p>
+                    </div>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <button class="faq-header" onclick="toggleFaq(this)">
+                        How do I choose the right hair transplant clinic and surgeon?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-content">
+                        <p>Research clinics and surgeons, considering their experience, reputation, patient reviews, and
+                            before-after photos. Schedule consultations to discuss your concerns and ensure you feel
+                            comfortable with the team and their approach.<a href="#know-more"
+                                class="know-more-link">Know More</a></p>
+                    </div>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <button class="faq-header" onclick="toggleFaq(this)">
+                        How much does a hair transplant typically cost?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-content">
+                        <p>The cost varies based on factors like location, clinic reputation, technique used, and the
+                            extent of the procedure. Generally, hair transplants range from a few thousand to several
+                            thousand dollars. It’s best to consult clinics for accurate pricing based on your needs.<a
+                                href="#know-more" class="know-more-link">Know More</a></p>
+                    </div>
+                </div>
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <button class="faq-header" onclick="toggleFaq(this)">
+                        What is the recovery process like after a hair transplant?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-content">
+                        <p>After the surgery, you may experience redness, swelling, and scabbing in the treated areas.
+                            Recovery typically takes a few days to a week, during which you should follow post-operative
+                            care instructions provided by your surgeon.<a href="#know-more" class="know-more-link">Know
+                                More</a></p>
+                    </div>
+                </div>
+                <!-- FAQ Item 5 -->
+                <div class="faq-item">
+                    <button class="faq-header" onclick="toggleFaq(this)">
+                        Is the procedure painful?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-content">
+                        <p>The procedure is performed under local anesthesia, so there’s minimal discomfort during the
+                            process. Most patients describe the experience as painless. <a href="#know-more"
+                                class="know-more-link">Know More</a></p>
+                    </div>
+                </div>
+                <!-- FAQ Item 6 -->
+                <div class="faq-item">
+                    <button class="faq-header" onclick="toggleFaq(this)">
+                        What is the recovery time?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-content">
+                        <p>Most people return to normal activities within 2 to 5 days. You may experience mild redness
+                            or scabbing for a week, but it typically resolves quickly. <a href="#know-more"
+                                class="know-more-link">Know More</a></p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -207,9 +360,14 @@
         </div>
     </section>
 
+    <!-- Call Button -->
+    <a href="tel:+917272832222" class="call-btn" target="_blank" title="Call Us">
+        <img src="assets/images/icons-call.svg" alt="Call Icon">
+    </a>
+
     <!-- WhatsApp Button -->
     <a href="https://wa.me/917272832222" class="whatsapp-btn" target="_blank" title="Chat on WhatsApp">
-        💬 Chat Now
+        <img src="assets/images/icons-whatsapp.svg" alt="Logo">
     </a>
 
     <!-- Footer -->
@@ -243,6 +401,19 @@
 
         // Initialize the slider
         updateSlider();
+
+        function toggleFaq(button) {
+            const faqItem = button.parentElement;
+            const faqContent = faqItem.querySelector('.faq-content');
+            const faqIcon = button.querySelector('.faq-icon');
+
+            // Toggle active class
+            faqItem.classList.toggle('active');
+
+            // Change icon
+            faqIcon.textContent = faqItem.classList.contains('active') ? '-' : '+';
+        }
+
     </script>
 
 </body>
